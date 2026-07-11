@@ -1,0 +1,40 @@
+tags = {
+    "Python": ["python", "programming", "code", "coding"],
+    "AI": ["ai", "machine learning", "deep learning", "neural network"],
+    "Web": ["html", "css", "javascript", "website", "web"],
+    "Database": ["sql", "mysql", "database", "mongodb"],
+    "Security": ["hacking", "cyber", "security", "encryption"],
+    "Sports": ["football", "cricket", "boxing", "gym", "fitness"],
+    "Education": ["school", "college", "study", "exam"],
+    "Business": ["marketing", "finance", "startup", "investment"]
+}
+def auto_tag():
+    text = input("Enter text: ").strip()
+    if not text:
+        print("Text cannot be empty.")
+        return
+    text = text.lower()
+    detected_tags = []
+    for tag, keywords in tags.items():
+        for keyword in keywords:
+            if keyword in text:
+                if tag not in detected_tags:
+                    detected_tags.append(tag)
+                break
+    if detected_tags:
+        print("\nDetected Tags:")
+        print(", ".join(detected_tags))
+    else:
+        print("No matching tags found.")
+while True:
+    print("\n===== Auto Tagging System =====")
+    print("1. Analyze Text")
+    print("2. Exit")
+    choice = input("Choose an option: ")
+    if choice == "1":
+        auto_tag()
+    elif choice == "2":
+        print("Goodbye!")
+        break
+    else:
+        print("Invalid choice.")
